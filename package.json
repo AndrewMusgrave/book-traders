@@ -1,0 +1,47 @@
+{
+  "name": "create-polaris-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --ignore client ./server/index.js",
+    "build": "next build",
+    "start": "next start",
+    "format": "prettier --write {server,pages,client}{/*,/**/*}.{js,jsx}",
+    "test": "jest --config ./config/jest/config.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@shopify/polaris": "^2.0.0",
+    "@zeit/next-sass": "^0.2.0",
+    "axios": "^0.18.0",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "isomorphic-fetch": "^2.2.1",
+    "morgan": "^1.9.0",
+    "next": "^6.0.3",
+    "node-sass": "^4.9.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-form": "^7.3.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.0.0-beta.47",
+    "@babel/preset-env": "^7.0.0-beta.47",
+    "babel-jest": "^22.4.4",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.19.1",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-shopify": "^22.0.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^22.4.4",
+    "jest-enzyme": "^6.0.0",
+    "nodemon": "^1.17.4",
+    "prettier": "^1.12.1"
+  }
+}

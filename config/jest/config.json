@@ -1,0 +1,17 @@
+{
+  "setupFiles": ["<rootDir>/client/tests/setup.js"],
+  "transform": {
+    "^.+\\.jsx?$": "babel-jest"
+  },
+  "testRegex": "/tests/.*.test.(js|jsx)?$",
+  "rootDir": "../..",
+  "roots": [
+    "<rootDir>/server",
+    "<rootDir>/client",
+    "<rootDir>/client/tests"
+  ],
+  "moduleFileExtensions": ["jsx", "js", "json"],
+  "moduleNameMapper": {
+    "\\.(s?css)$": "identity-obj-proxy"
+  }
+}
