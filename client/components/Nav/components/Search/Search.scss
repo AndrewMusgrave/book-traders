@@ -1,0 +1,29 @@
+.SearchWrapper {
+    width: 170px;
+    position: relative;
+    color: #aaa;
+    height: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Search {
+    max-width: 250px;
+    height: 3rem;
+    background: #fcfcfc;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    box-shadow: 0 0 3px #ccc, inset 0 10px 15px #ebebeb;
+    text-indent: 3rem; 
+}
+
+.searchIcon {
+    position: absolute;
+    fill: #aaa;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    display: inline-block;
+  }

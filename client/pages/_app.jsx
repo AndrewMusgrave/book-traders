@@ -24,21 +24,28 @@ export default class MyApp extends App {
                 title: 'Book Traders',
                 route: '/book-trading',
               }}
-              routes={[
-                {
-                  name: 'My Books',
-                  to: '/my-books',
-                },
-                {
-                  name: 'Profile',
-                  to: '/profile',
-                },
-                {
-                  name: 'Sign Out',
-                  to: '/signout',
-                },
-              ]}
-            />
+            >
+              <Nav.Brand href="/">Book Traders</Nav.Brand>
+              <Nav.Collapse>
+                <Nav.Routes
+                  routes={[
+                    {
+                      name: 'My Books',
+                      to: '/my-books',
+                    },
+                    {
+                      name: 'Profile',
+                      to: '/profile',
+                    },
+                    {
+                      name: 'Sign Out',
+                      to: '/signout',
+                    },
+                  ]}
+                />
+                <Nav.Search placeHolder="Search ..." />
+              </Nav.Collapse>
+            </Nav>
             <Component {...pageProps} />
           </Layout>
         </Provider>

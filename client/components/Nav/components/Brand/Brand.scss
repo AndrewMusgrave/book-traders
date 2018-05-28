@@ -1,0 +1,17 @@
+.Brand {
+    color: #f8f9fa;
+    padding: 1.5rem;
+		font-size: 2rem;
+		
+		display: flex;
+		align-items: center;
+}
+
+.Link {
+	&:focus,
+	&:active,
+	&:hover {
+			color: hsla(0,0%,100%,.5);
+			outline: none;
+	}
+}
