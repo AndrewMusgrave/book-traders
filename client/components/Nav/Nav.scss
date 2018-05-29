@@ -11,6 +11,13 @@
 
 .wrapper {
   display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    flex-direction: row;
+  }
 }
 
 .fixedNav {

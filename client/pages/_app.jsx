@@ -25,8 +25,11 @@ export default class MyApp extends App {
                 route: '/book-trading',
               }}
             >
-              <Nav.Brand href="/">Book Traders</Nav.Brand>
-              <Nav.Collapse>
+              <Nav.Section>
+                <Nav.Brand href="/">Book Traders</Nav.Brand>
+                <Nav.Toggle />
+              </Nav.Section>
+              <Nav.Section fill>
                 <Nav.Routes
                   routes={[
                     {
@@ -44,7 +47,7 @@ export default class MyApp extends App {
                   ]}
                 />
                 <Nav.Search placeHolder="Search ..." />
-              </Nav.Collapse>
+              </Nav.Section>
             </Nav>
             <Component {...pageProps} />
           </Layout>

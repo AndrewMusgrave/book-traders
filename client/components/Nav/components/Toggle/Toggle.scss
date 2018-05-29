@@ -1,0 +1,46 @@
+.ToggleWrapper {
+	display: flex;
+	align-items: center;
+}
+
+.top,
+.middle,
+.bottom, {
+	height: 2px;
+	width: 20px;
+	background: #6FFFE9;
+	transition: all .7s ease;
+	margin: 4px auto;
+
+	.Toggle:hover &,
+	.toggled & { 
+		background-color:  #f92c8c;
+	}
+}
+
+.Toggle:hover,
+.Toggle:focus,
+.Toggle:active,
+.toggled {
+	.top {
+		transform: translateY(6px) rotateZ(45deg);
+	}
+
+	.middle {
+		width: 0;
+	}
+
+	.bottom {
+		transform: translateY(-6px) rotateZ(-45deg);
+	}
+}
+
+.smallCollapse {
+	display: flex;
+}
+
+@media (min-width: 768px) {
+    .smallCollapse {
+        display: none;
+    }
+}

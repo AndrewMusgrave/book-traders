@@ -1,0 +1,12 @@
+.Section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fill {
+  flex: 1;	
+}
+
+.notFill {
+  flex: 0;
+}

@@ -4,7 +4,8 @@ import { Container } from '../../components';
 import Brand from './components/Brand';
 import Routes from './components/Routes';
 import Search from './components/Search';
-import Collapse from './components/Collapse';
+import Section from './components/Section';
+import Toggle from './components/Toggle';
 
 import * as styles from './Nav.scss';
 
@@ -12,7 +13,8 @@ class Nav extends Component {
   static Brand = Brand;
   static Routes = Routes;
   static Search = Search;
-  static Collapse = Collapse;
+  static Section = Section;
+  static Toggle = Toggle;
 
   render() {
     const { children, fixed } = this.props;
