@@ -7,7 +7,6 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-//   flex-direction: column;
 }
 
 .Item {
@@ -43,5 +42,18 @@
     content: '';
     transform: scaleX(0);
     transform-origin: center;
+  }
+}
+
+
+.List {
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+@media (min-width: 768px) {
+  .List {
+      flex-direction: row;
+      flex-wrap: wrap;      
   }
 }

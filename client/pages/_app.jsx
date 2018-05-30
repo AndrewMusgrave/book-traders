@@ -29,7 +29,7 @@ export default class MyApp extends App {
                 <Nav.Brand href="/">Book Traders</Nav.Brand>
                 <Nav.Toggle />
               </Nav.Section>
-              <Nav.Section fill>
+              <Nav.Section collapse fill reverse>
                 <Nav.Routes
                   routes={[
                     {

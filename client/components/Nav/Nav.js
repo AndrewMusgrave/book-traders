@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { classNames } from '../../utils';
 import { Container } from '../../components';
+import { NavProvider } from './components/Context';
 import Brand from './components/Brand';
 import Routes from './components/Routes';
 import Search from './components/Search';
@@ -24,11 +25,13 @@ class Nav extends Component {
     );
 
     return (
-      <nav className={styles.Nav}>
-        <Container>
-          <div className={styles.wrapper}>{children}</div>
-        </Container>
-      </nav>
+      <NavProvider>
+        <nav className={styles.Nav}>
+          <Container>
+            <div className={styles.wrapper}>{children}</div>
+          </Container>
+        </nav>
+      </NavProvider>
     );
   }
 }

@@ -10,3 +10,29 @@
 .notFill {
   flex: 0;
 }
+
+.Collapsible {
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .35s ease 0ms;
+}
+
+.collapse {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.open {
+  max-height: 500px;
+  transition: max-height .35s ease 0ms;
+}
+
+@media (min-width: 768px) {
+  .Collapsible, .collapse {
+      display: flex;
+      flex-direction: row;
+      max-height: none;
+  }
+}
