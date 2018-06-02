@@ -1,6 +1,6 @@
 import React from 'react';
 import App, { Container } from 'next/app';
-import { Layout, Nav } from '../components';
+import { Layout, Nav, Footer } from '../components';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import store from '../store';
@@ -50,6 +50,7 @@ export default class MyApp extends App {
               </Nav.Section>
             </Nav>
             <Component {...pageProps} />
+            <Footer>children footer</Footer>
           </Layout>
         </Provider>
       </Container>

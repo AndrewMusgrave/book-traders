@@ -8,5 +8,21 @@
 body, html {
     height: 100%;
     width:100%;
+    position: relative;
 }
 
+html {
+  height:100%;
+}
+
+body {
+  min-height:100%;
+  padding:0;
+  margin:0;
+  position:relative; 
+}
+
+// #__next
+body > div:first-child {
+  height: 100%;
+}
