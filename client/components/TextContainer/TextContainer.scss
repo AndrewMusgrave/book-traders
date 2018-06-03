@@ -1,0 +1,29 @@
+.TextContainer {
+    h2 {
+        font-size: 2.4rem;
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+
+    h4 {
+
+    }
+
+    p {
+        margin: 0 0 15px 0;
+        line-height: 1.6;
+        font-size: 1.6rem;
+        color: #999;
+    }
+
+    h2, h3 {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin: 0 0 .2em 0;
+        line-height: 1.4;
+        font-weight: 100;
+        color: #666;
+    }
+}

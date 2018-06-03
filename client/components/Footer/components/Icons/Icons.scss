@@ -1,0 +1,11 @@
+.Icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    // width: 100%;
+
+    > * {
+        margin: 2.5px 5px;
+    }
+}

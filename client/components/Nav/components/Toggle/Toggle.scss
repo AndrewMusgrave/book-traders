@@ -8,13 +8,13 @@
 .bottom, {
 	height: 2px;
 	width: 20px;
-	background: #6FFFE9;
+	background: hsla(0,0%,100%,.5);
 	transition: all .7s ease;
 	margin: 4px auto;
 
 	.Toggle:hover &,
 	.toggled & { 
-		background-color:  #f92c8c;
+		background-color: #f8f9fa;
 	}
 }
 

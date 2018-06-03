@@ -1,0 +1,40 @@
+.Section {
+  display: flex;
+  margin: 5px;
+}
+
+.tight {
+  margin: 0;
+}
+
+.centerSection {
+  justify-content: center;
+}
+
+.startSection {
+  justify-content: flex-start;
+}
+
+.endSection {
+  justify-content: flex-end;
+}
+
+.betweenSection {
+  justify-content: space-between;
+}
+
+.aroundSection {
+  justify-content: space-around;
+}
+
+.evenlySection {
+  justify-content: space-evenly;
+}
+
+.columnDirection {
+  flex-direction: column;
+}
+
+.rowDirection {
+  flex-direction: row;
+}

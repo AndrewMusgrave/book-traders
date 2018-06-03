@@ -17,7 +17,7 @@
     position: relative;
     text-align: center;
     transition-duration: 0.25s;
-    padding: 1.5rem 1rem;
+    padding: .5rem 1rem;
 
   &:hover,
   &:active,
@@ -55,5 +55,9 @@
   .List {
       flex-direction: row;
       flex-wrap: wrap;      
+  }
+
+  .Link {
+    padding: 1.25rem 1rem;
   }
 }
