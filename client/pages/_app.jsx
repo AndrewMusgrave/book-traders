@@ -77,12 +77,24 @@ export default class MyApp extends App {
               <Footer.Section>
                 <Footer.Icons
                   icons={[
-                    { src: 'facebook' },
-                    { src: 'email' },
-                    { src: 'instagram' },
-                    { src: 'phone' },
-                    { src: 'twitter' },
-                    { src: 'tumblr' },
+                    {
+                      src: 'facebook',
+                      href: 'facebook.com',
+                    },
+                    {
+                      src: 'email',
+                      href: 'mailto:test@gmail.com',
+                    },
+                    {
+                      src: 'instagram',
+                      href: 'instagram.com',
+                    },
+                    {
+                      src: 'phone',
+                      href: 'mailto:6137777777',
+                    },
+                    { src: 'twitter', href: 'twitter.com' },
+                    { src: 'tumblr', href: 'tumblr.com' },
                   ]}
                 />
               </Footer.Section>

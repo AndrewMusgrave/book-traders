@@ -5,10 +5,10 @@ import * as styles from './Routes.scss';
 function Routes({ routes }) {
   const routeMarkup =
     routes &&
-    routes.map((route, idx) => {
+    routes.map((route, ind) => {
       const { name, to } = route;
       return (
-        <li className={styles.Item} key={idx}>
+        <li className={styles.Item} key={ind}>
           <Link className={styles.Link} href={to}>
             {name}
           </Link>

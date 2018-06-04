@@ -6,8 +6,8 @@ import * as styles from './Icons.scss';
 function Icons({ icons }) {
   const iconsMarkup =
     icons &&
-    icons.map(icon => (
-      <Icon href={icon.href} src={icon.src} />
+    icons.map((icon, ind) => (
+      <Icon key={ind} href={icon.href} src={icon.src} />
     ));
 
   return <div className={styles.Icons}>{iconsMarkup}</div>;

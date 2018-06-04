@@ -22,8 +22,8 @@ function List({ title, items, direction = 'column' }) {
       <ul className={listClassName}>
         {items &&
           items.length > 0 &&
-          items.map(item => (
-            <li className={styles.listItem}>
+          items.map((item, ind) => (
+            <li key={ind} className={styles.listItem}>
               <Link
                 className={styles.listLink}
                 href={item.href}

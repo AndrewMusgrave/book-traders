@@ -3,3 +3,13 @@
   color: inherit;
   font-size: inherit;
 }
+
+.normalLink {
+  color: rgba(39, 128, 227, .5);
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: rgba(39, 128, 227, 1);    
+  }
+}
