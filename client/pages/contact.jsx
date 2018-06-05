@@ -1,6 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import * as actions from '../actions';
-import { Container, FormCard } from '../components';
+import {
+  Container,
+  FormCard,
+  Spinner,
+} from '../components';
 import { connect } from 'react-redux';
 
 const contactErrors = {
@@ -89,17 +93,12 @@ class Contact extends Component {
             onBlur={this.handleInputBlur('message')}
           />
           <FormCard.ButtonGroup>
-            <FormCard.Button>Send Message</FormCard.Button>
+            <FormCard.Button loading />
           </FormCard.ButtonGroup>
           <FormCard.Link href="/">
             Wrong name? Click here
           </FormCard.Link>
-          <FormCard.ButtonGroup>
-            <FormCard.Button>Send Message</FormCard.Button>
-            <FormCard.Button>Send Message</FormCard.Button>
-            <FormCard.Button>Send Message</FormCard.Button>
-            <FormCard.Button>Send Message</FormCard.Button>
-          </FormCard.ButtonGroup>
+          {/* <FormCard.ButtonGroup primary={} secondary={} /> */}
         </FormCard>
       </Container.Sub>
     );

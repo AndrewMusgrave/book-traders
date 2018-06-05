@@ -1,0 +1,34 @@
+.Spinner {
+    height: 100%;
+    width: auto;
+    border: 1px black solid;
+    border-top-color: red;
+    border-radius: 50%;
+    display: block;
+    animation: rotate 1s ease infinite;
+}
+
+.smallSpinner {
+    height: 3rem;
+}
+
+.mediumSpinner {
+    height: 4rem;
+}
+
+.largeSpinner {
+    height: 5rem;
+}
+
+.smallSpinner,
+.mediumSpinner,
+.largeSpinner {
+    display: block;
+}
+
+@keyframes rotate {
+    to {
+        border-top-color: #3498db;
+        transform: rotate(360deg);
+    }
+}

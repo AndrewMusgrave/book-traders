@@ -21,3 +21,5 @@ export { default as List } from './List';
 export { default as EventListener } from './EventListener';
 
 export { default as FormCard } from './FormCard';
+
+export { default as Spinner } from './Spinner';
