@@ -4,6 +4,7 @@ import {
   Container,
   FormCard,
   Spinner,
+  Button,
 } from '../components';
 import { connect } from 'react-redux';
 
@@ -92,9 +93,7 @@ class Contact extends Component {
             onChange={this.handleTextChange('message')}
             onBlur={this.handleInputBlur('message')}
           />
-          <FormCard.ButtonGroup>
-            <FormCard.Button loading />
-          </FormCard.ButtonGroup>
+          <Button fullWidth>Save link</Button>
           <FormCard.Link href="/">
             Wrong name? Click here
           </FormCard.Link>

@@ -1,0 +1,33 @@
+.Button {
+    background-color: #2780e3;
+    border: none;
+    color: #f8f9fa;
+    cursor: pointer;
+    font-family: inherit;
+    letter-spacing: .05em;
+    text-align: center;
+    padding: 1rem;
+}
+
+.smallButton {
+    min-height: 3rem;
+    font-size: 1.6rem;
+}
+
+.mediumButton {
+    min-height: 4rem;
+    font-size: 1.7rem;    
+}
+
+.largeButton {
+    min-height: 5rem;
+    font-size: 1.8rem;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+.danger {
+    background-color: #dc3545;    
+}

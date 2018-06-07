@@ -1,6 +1,5 @@
 import React from 'react';
 import { classNames } from '../../../../utils';
-import { Spinner } from '../../../../components';
 import * as styles from './Button.scss';
 
 /**
