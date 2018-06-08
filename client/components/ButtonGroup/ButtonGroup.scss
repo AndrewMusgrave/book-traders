@@ -1,6 +1,13 @@
 .ButtonGroup {
-    // width: 100%;
     display: flex;
+
+    &:not(.fullWidth) {
+        > * + * {
+            margin-left: 1px;
+        }
+    }
+}
+
+.fullWidth {
     flex-wrap: wrap;
-    margin: 3.2rem -1px -1px;
 }

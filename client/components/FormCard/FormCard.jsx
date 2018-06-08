@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import Field from './components/Field';
-import ButtonGroup from './components/ButtonGroup';
-import Button from './components/Button';
 import Link from './components/Link';
 import * as styles from './FormCard.scss';
 
 class FormCard extends Component {
   static Field = Field;
-  static ButtonGroup = ButtonGroup;
-  static Button = Button;
   static Link = Link;
 
   render() {

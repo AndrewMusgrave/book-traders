@@ -5,6 +5,7 @@ import {
   FormCard,
   Spinner,
   Button,
+  ButtonGroup,
 } from '../components';
 import { connect } from 'react-redux';
 
@@ -93,11 +94,22 @@ class Contact extends Component {
             onChange={this.handleTextChange('message')}
             onBlur={this.handleInputBlur('message')}
           />
-          <Button fullWidth>Save link</Button>
+          {/* <Button fullWidth>Save link</Button> */}
+          <ButtonGroup
+            fullWidth
+            primary={{
+              fullWidth: true,
+              content: 'Save Link',
+            }}
+            secondary={{
+              fullWidth: true,
+              content: 'Cancel',
+              danger: true,
+            }}
+          />
           <FormCard.Link href="/">
             Wrong name? Click here
           </FormCard.Link>
-          {/* <FormCard.ButtonGroup primary={} secondary={} /> */}
         </FormCard>
       </Container.Sub>
     );
