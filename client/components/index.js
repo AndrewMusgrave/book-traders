@@ -27,3 +27,5 @@ export { default as Spinner } from './Spinner';
 export { default as Button } from './Button';
 
 export { default as ButtonGroup } from './ButtonGroup';
+
+export {default as Portal } from './Portal';
