@@ -28,4 +28,6 @@ export { default as Button } from './Button';
 
 export { default as ButtonGroup } from './ButtonGroup';
 
-export {default as Portal } from './Portal';
+export { default as Portal } from './Portal';
+
+export { default as Modal } from './Modal';
