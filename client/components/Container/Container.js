@@ -11,6 +11,7 @@ class Container extends Component {
     const className = classNames(
       styles.Container,
       loose && styles.loose,
+      styles[`${size}Container`],
     );
 
     return <div className={className}>{children}</div>;

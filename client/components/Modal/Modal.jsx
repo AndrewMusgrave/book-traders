@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Portal } from '../../components';
+import { Portal, Container } from '../../components';
 import Header from './components/Header';
 import Section from './components/Section';
 import Footer from './components/Footer';
@@ -14,7 +14,9 @@ class Modal extends Component {
     const { children } = this.props;
     return (
       <Portal prefix="modal">
-        <div className={styles.Modal}>{children}</div>
+        <div className={styles.Modal}>
+          <Container size="small">{children}</Container>
+        </div>
       </Portal>
     );
   }
