@@ -15,7 +15,7 @@ class Modal extends Component {
     return (
       <Portal prefix="modal">
         <div className={styles.Modal}>
-          <Container size="small">{children}</Container>
+          <Container size="small"><div className={styles.body}>{children}</div></Container>
         </div>
       </Portal>
     );
