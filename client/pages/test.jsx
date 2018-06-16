@@ -7,6 +7,7 @@ function Test() {
   return (
     <Container.Sub>
       <Modal>
+        <Modal.Header title="Modal" close />
         <Modal.Section>Hlelo</Modal.Section>
       </Modal>
     </Container.Sub>

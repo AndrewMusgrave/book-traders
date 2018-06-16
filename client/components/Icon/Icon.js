@@ -10,6 +10,7 @@ import {
   phone,
   tumblr,
   twitter,
+  close,
 } from './Icons';
 
 const ICONS = {
@@ -19,14 +20,18 @@ const ICONS = {
   phone,
   tumblr,
   twitter,
+  close,
 };
 
 function Icon({ href, src }) {
   const icon = ICONS[src];
-  return (
+  console.log(icon);
+  return href ? (
     <Link href={href}>
       <div className={styles.svgWrapper}>{icon}</div>
     </Link>
+  ) : (
+    <div className={styles.svgWrapper}>{icon}</div>
   );
 }
 
