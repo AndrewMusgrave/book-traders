@@ -1,9 +1,6 @@
 .svgWrapper {
-    border: 1px solid hsla(0,0%,100%,.5);
     display: block;
     text-align: center;
-    transition-duration: .2s;
-    border-radius: 5px;
     
     &:hover, &:focus, &:active {
         transform: scale(1.1);
@@ -11,9 +8,47 @@
 
     svg {
         fill: #f8f9fa;
-        width: 2.5rem;
-        height: 2.5rem;
         display: block;
         margin: 5px;
+    }
+}
+
+.media {
+    border: 1px solid hsla(0,0%,100%,.5);
+    transition-duration: .2s;
+    border-radius: 5px;
+}
+
+.smallIcon {
+    svg {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+}
+
+.mediumIcon {
+    svg {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+
+.largeIcon {
+    svg {
+        width: 3.75rem;
+        height: 3.75rem;
+    }
+}
+
+.extraLargeIcon {
+    svg {
+        width: 5rem;
+        height: 5rem;
+    }
+}
+
+.secondary {
+    svg {
+        fill: black;
     }
 }

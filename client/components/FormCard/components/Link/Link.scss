@@ -1,3 +1,9 @@
 .Link {
-    
+    color: #8c8c8c;
+    text-decoration: none;
+    transition: border-color .3s;
+
+    &:hover {
+        border-bottom: 1px dotted #8c8c8c;
+    }
 }

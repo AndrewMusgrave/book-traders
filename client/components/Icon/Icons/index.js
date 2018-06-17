@@ -4,3 +4,4 @@ export { default as instagram } from './instagram.js';
 export { default as phone } from './phone.js';
 export { default as tumblr } from './tumblr.js';
 export { default as twitter } from './twitter.js';
+export { default as close } from './close.js';

@@ -9,6 +9,11 @@
     padding: 1rem;
 }
 
+.extraSmallButton {
+    min-height: 2rem;
+    font-size: 1.5rem;
+}
+
 .smallButton {
     min-height: 3rem;
     font-size: 1.6rem;
@@ -30,4 +35,8 @@
 
 .danger {
     background-color: #dc3545;    
+}
+
+.rounded {
+    border-radius: 3px;
 }

@@ -7,7 +7,12 @@ function Icons({ icons }) {
   const iconsMarkup =
     icons &&
     icons.map((icon, ind) => (
-      <Icon key={ind} href={icon.href} src={icon.src} />
+      <Icon
+        key={ind}
+        href={icon.href}
+        src={icon.src}
+        media
+      />
     ));
 
   return <div className={styles.Icons}>{iconsMarkup}</div>;

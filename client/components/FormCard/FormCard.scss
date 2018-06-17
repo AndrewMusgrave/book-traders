@@ -1,13 +1,28 @@
 .FormCard {
+    padding: 2rem 0;
+}
+
+.rightText {
+    text-align: right;
+}
+
+.leftText {
+    text-align: left
+}
+
+.centerText {
+    text-align: center;
+}
+
+.card {
     background: #fafafa;
     margin: 6em auto;
-    padding: 1em 0;
     max-width: 370px;
     box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
 }
 
 .form {
-    padding: 2.4rem;
+    padding: 2rem;
 }
 
 .header {

@@ -1,10 +1,13 @@
 import React from 'react';
+import { classNames } from '../../../../utils';
 import { Link as RegularLink } from '../../../../components';
 import * as styles from './Link.scss';
 
 function Link({ children, href }) {
+  const linkClassName = classNames(styles.Link);
+
   return (
-    <RegularLink href={href} className={styles.Link}>
+    <RegularLink href={href} className={linkClassName}>
       {children}
     </RegularLink>
   );

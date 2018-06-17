@@ -23,15 +23,26 @@ const ICONS = {
   close,
 };
 
-function Icon({ href, src }) {
+function Icon({
+  href,
+  src,
+  secondary,
+  size = 'medium',
+  media,
+}) {
+  const iconClassName = classNames(
+    styles.svgWrapper,
+    secondary && styles.secondary,
+    styles[`${size}Icon`],
+    media && styles.media,
+  );
   const icon = ICONS[src];
-  console.log(icon);
   return href ? (
     <Link href={href}>
-      <div className={styles.svgWrapper}>{icon}</div>
+      <div className={iconClassName}>{icon}</div>
     </Link>
   ) : (
-    <div className={styles.svgWrapper}>{icon}</div>
+    <div className={iconClassName}>{icon}</div>
   );
 }
 

@@ -20,12 +20,14 @@ function Button({
   size = 'medium',
   onClick,
   fullWidth,
+  rounded,
 }) {
   const buttonClassName = classNames(
     styles.Button,
     styles[`${size}Button`],
     danger && styles.danger,
     fullWidth && styles.fullWidth,
+    rounded && styles.rounded,
   );
 
   const loadingMarkup = loading && <Spinner />;

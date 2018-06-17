@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Portal, Container } from '../../components';
+import { classNames } from '../../utils';
+import EventListener from '../EventListener';
 import Header from './components/Header';
 import Section from './components/Section';
 import Footer from './components/Footer';
@@ -10,15 +12,43 @@ class Modal extends Component {
   static Section = Section;
   static Footer = Footer;
 
+  handleBackDrop = e => {
+    const { onBackDrop } = this.props;
+
+    if (e.target === this.node) {
+      onBackDrop();
+    }
+  };
+
+  setNode = n => {
+    this.node = n;
+  };
+
   render() {
-    const { children } = this.props;
-    return (
-      <Portal prefix="modal">
-        <div className={styles.Modal}>
-          <Container size="small"><div className={styles.body}>{children}</div></Container>
-        </div>
-      </Portal>
+    const {
+      children,
+      backDrop,
+      open,
+      onBackDrop,
+    } = this.props;
+    const modalClassName = classNames(
+      styles.Modal,
+      backDrop && styles.backDrop,
     );
+
+    const bodyMarkup = open && (
+      <div className={modalClassName} ref={this.setNode}>
+        <EventListener
+          event="click"
+          handler={this.handleBackDrop}
+        />
+        <Container size="small">
+          <div className={styles.body}>{children}</div>
+        </Container>
+      </div>
+    );
+
+    return <Portal prefix="modal">{bodyMarkup}</Portal>;
   }
 }
 
