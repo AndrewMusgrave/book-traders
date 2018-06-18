@@ -6,39 +6,22 @@ function createUniqueID(prefix) {
   return () => `${prefix}-${i}`;
 }
 
-// function Portal({
-//   children,
-//   id,
-//   element = 'div',
-//   prefix = 'portal',
-// }) {
-//   if (!id) {
-//     id = createUniqueID(prefix);
-//   }
-//   let node = document.getElementById(id);
-//   if (!node) {
-//     node = document.createElement(element);
-//     node.id = id;
-//     document.body.appendChild(node);
-//   }
-
-//   return ReactDOM.createPortal(children, node);
-// }
+const uniqueID = createUniqueID('portal');
 
 class Portal extends React.Component {
   render() {
     if (typeof window !== 'undefined') {
       const {
         children,
-        id,
+        id = uniqueID(),
         element = 'div',
         prefix = 'portal',
       } = this.props;
-      const uniqueID = createUniqueID(prefix);
-      let newId;
-      if (!id) {
-        newId = uniqueID();
-      }
+      // const uniqueID = createUniqueID(prefix);
+      // let newId;
+      // if (!id) {
+      //   newId = uniqueID();
+      // }
 
       let node = document.getElementById(id);
 

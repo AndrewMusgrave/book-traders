@@ -30,3 +30,40 @@
         justify-content: center;
     }
 }
+
+
+.slideInUp {
+    transform: translateY(0);
+    transition: all ease .3s;
+    opacity: 1;
+  
+    &.entering,
+    &.exiting,
+    &.exited {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+  
+    &.entered {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+// .slideInUp {
+//     animation-duration: .75s;
+//     animation-name: slideInUp;
+//   }
+
+// @keyframes slideInUp {
+//     from {
+//         transform: translate3d(0, 100%, 0);
+//         visibility: visible;
+//     }
+
+//     to {
+//         transform: translate3d(0, 0, 0);
+//     }
+// }
+  

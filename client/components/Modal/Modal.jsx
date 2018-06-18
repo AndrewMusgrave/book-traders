@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
 import { Portal, Container } from '../../components';
 import { classNames } from '../../utils';
+import {
+  TransitionGroup,
+  CSSTransition,
+} from 'react-transition-group';
 import EventListener from '../EventListener';
 import Header from './components/Header';
 import Section from './components/Section';
 import Footer from './components/Footer';
 import * as styles from './Modal.scss';
+
+const slideInUp = {
+  enter: classNames(styles.slideInUp, styles.entering),
+  enterActive: classNames(styles.slideInUp, styles.entered),
+  exit: classNames(styles.slideInUp, styles.exiting),
+  exitActive: classNames(styles.slideInUp, styles.exited),
+};
 
 class Modal extends Component {
   static Header = Header;
@@ -36,19 +47,36 @@ class Modal extends Component {
       backDrop && styles.backDrop,
     );
 
-    const bodyMarkup = open && (
-      <div className={modalClassName} ref={this.setNode}>
-        <EventListener
-          event="click"
-          handler={this.handleBackDrop}
-        />
-        <Container size="small">
-          <div className={styles.body}>{children}</div>
-        </Container>
-      </div>
+    const bodyClassName = classNames(
+      styles.body,
+      styles.slideInUp,
     );
 
-    return <Portal prefix="modal">{bodyMarkup}</Portal>;
+    const backDropListener = onBackDrop && (
+      <EventListener
+        event="click"
+        handler={this.handleBackDrop}
+      />
+    );
+
+    const bodyMarkup = open && (
+      <CSSTransition timeout={750} classNames={slideInUp}>
+        <div className={modalClassName} ref={this.setNode}>
+          {backDropListener}
+          <Container size="small">
+            <div className={bodyClassName}>{children}</div>
+          </Container>
+        </div>
+      </CSSTransition>
+    );
+
+    return (
+      <Portal prefix="modal">
+        <TransitionGroup component={null}>
+          {bodyMarkup}
+        </TransitionGroup>
+      </Portal>
+    );
   }
 }
 

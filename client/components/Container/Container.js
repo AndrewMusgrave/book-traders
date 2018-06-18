@@ -7,7 +7,11 @@ class Container extends Component {
   static Sub = Sub;
 
   render() {
-    const { children, loose, size = 'extra-large' } = this.props;
+    const {
+      children,
+      loose,
+      size = 'extraLarge',
+    } = this.props;
     const className = classNames(
       styles.Container,
       loose && styles.loose,
