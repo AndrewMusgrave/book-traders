@@ -62,15 +62,6 @@ class Test extends Component {
           onChange={noop}
           onBlur={noop}
         />
-        <FormCard.Field
-          label="Message *"
-          id="contact-Message"
-          value={''}
-          error={''}
-          multi={10}
-          onChange={noop}
-          onBlur={noop}
-        />
         <Button fullWidth> Sign in </Button>
         <FormCard.Link href="/">
           Wrong name? Click here
@@ -79,7 +70,7 @@ class Test extends Component {
     );
 
     const signupMarkup = (
-      <FormCard header="Contact Us" blend>
+      <FormCard header="Sign in" blend>
         <FormCard.Field
           label="Name *"
           id="contact-name"
@@ -101,15 +92,6 @@ class Test extends Component {
           id="contact-phoneNumber"
           value={''}
           error={''}
-          onChange={noop}
-          onBlur={noop}
-        />
-        <FormCard.Field
-          label="Message *"
-          id="contact-Message"
-          value={''}
-          error={''}
-          multi={10}
           onChange={noop}
           onBlur={noop}
         />

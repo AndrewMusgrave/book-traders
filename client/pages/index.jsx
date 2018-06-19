@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import {
-  Button,
   Page,
   AppProvider,
   TextField,
   Form,
 } from '@shopify/polaris';
 import Header from '../components/Header';
+import { Button } from '../components';
 import * as actions from '../actions';
 import { connect } from 'react-redux';
 
@@ -45,6 +45,7 @@ class Main extends Component {
               {name}
             </Button>
           </Form> */}
+          <Button> test </Button>
         </Page>
       </AppProvider>
     );

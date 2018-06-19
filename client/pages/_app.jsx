@@ -11,6 +11,7 @@ import { createStore, applyMiddleware } from 'redux';
 import store from '../store';
 
 import '../styles/globals.scss';
+import '../styles/variables.scss';
 
 export default class MyApp extends App {
   handleSearch() {

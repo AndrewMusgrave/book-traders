@@ -42,22 +42,20 @@ class Modal extends Component {
       open,
       onBackDrop,
     } = this.props;
-    const modalClassName = classNames(
-      styles.Modal,
-      backDrop && styles.backDrop,
-    );
+    const modalClassName = classNames(styles.Modal);
 
     const bodyClassName = classNames(
       styles.body,
       styles.slideInUp,
     );
 
-    const backDropListener = onBackDrop && (
-      <EventListener
-        event="click"
-        handler={this.handleBackDrop}
-      />
-    );
+    const backDropListener = onBackDrop &&
+      open && (
+        <EventListener
+          event="click"
+          handler={this.handleBackDrop}
+        />
+      );
 
     const bodyMarkup = open && (
       <CSSTransition timeout={750} classNames={slideInUp}>
@@ -70,8 +68,13 @@ class Modal extends Component {
       </CSSTransition>
     );
 
+    const backDropMarkup = open && (
+      <div className={styles.test} />
+    );
+
     return (
       <Portal prefix="modal">
+        {backDropMarkup}
         <TransitionGroup component={null}>
           {bodyMarkup}
         </TransitionGroup>
