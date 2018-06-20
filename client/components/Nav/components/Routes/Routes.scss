@@ -22,7 +22,7 @@
   &:hover,
   &:active,
   &:focus, {
-    color: #f8f9fa;  
+    color: var(--nav-link-focus-color);  
     outline: none;
 
     &::after {
@@ -31,7 +31,7 @@
   }
 
   &::after {
-    border-bottom: 1px #f8f9fa solid;
+    border-bottom: 1px var(--nav-link-after-borderBottom) solid;
     margin-bottom: .5rem;
     bottom: 0;
     left: 0;

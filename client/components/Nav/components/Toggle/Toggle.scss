@@ -14,7 +14,7 @@
 
 	.Toggle:hover &,
 	.toggled & { 
-		background-color: #f8f9fa;
+		background-color: var(--nav-toggle-toggled-backGround);
 	}
 }
 

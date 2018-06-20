@@ -1,7 +1,7 @@
 .Button {
     background-color: var(--button-backGround);
     border: none;
-    color: #f8f9fa;
+    color: var(--button-color);
     cursor: pointer;
     font-family: inherit;
     letter-spacing: .05em;
@@ -34,7 +34,7 @@
 }
 
 .danger {
-    background-color: #dc3545;    
+    background-color: var(--danger);    
 }
 
 .rounded {
