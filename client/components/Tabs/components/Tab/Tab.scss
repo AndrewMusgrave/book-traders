@@ -2,7 +2,7 @@
     flex: 1;
     text-align: center;
     padding: 0 1rem;
-    color: #8c8c8c;
+    color: var(--tab-color);
     font-size: 1.6rem;
 }
 
@@ -12,7 +12,7 @@
 }
 
 .selected {
-    border-bottom: 2px solid #2780e3;   
-    color: #5e5e5e;
+    border-bottom: 2px solid var(--tab-selected-borderBottom);   
+    color: var(--tab-selected-color);
     font-weight: 500;
 }

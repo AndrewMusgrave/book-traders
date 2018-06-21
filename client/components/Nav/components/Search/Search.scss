@@ -1,7 +1,7 @@
 .SearchWrapper {
     width: 170px;
     position: relative;
-    color: #aaa;
+    color: var(--nav-searchWrapper-color);
     height: auto;
     display: inline-flex;
     align-items: center;
@@ -12,16 +12,16 @@
 .Search {
     max-width: 250px;
     height: 3rem;
-    background: #fcfcfc;
-    border: 1px solid #aaa;
+    background: var(--nav-search-backGround);
+    border: 1px solid var(--nav-search-border);
     border-radius: 5px;
-    box-shadow: 0 0 3px #ccc, inset 0 10px 15px #ebebeb;
+    box-shadow: 0 0 3px var(--nav-search-boxShadow-one), inset 0 10px 15px var(--nav-search-boxShadow-two);
     text-indent: 3rem; 
 }
 
 .searchIcon {
     position: absolute;
-    fill: #aaa;
+    fill: var(--nav-searchIcon-fill);
     left: 0;
     width: 25px;
     height: 25px;
