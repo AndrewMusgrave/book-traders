@@ -1,8 +1,8 @@
 .Spinner {
     height: 100%;
     width: auto;
-    border: 1px black solid;
-    border-top-color: red;
+    border: 3px var(--spinner-border) solid;
+    border-top-color: var(--spinner-borderTop);
     border-radius: 50%;
     display: block;
     animation: rotate 1s ease infinite;
@@ -10,14 +10,17 @@
 
 .smallSpinner {
     height: 3rem;
+    width: 3rem;    
 }
 
 .mediumSpinner {
     height: 4rem;
+    width: 4rem;        
 }
 
 .largeSpinner {
     height: 5rem;
+    width: 5rem;    
 }
 
 .smallSpinner,
@@ -28,7 +31,7 @@
 
 @keyframes rotate {
     to {
-        border-top-color: #3498db;
+        border-top-color: var(--danger);
         transform: rotate(360deg);
     }
 }

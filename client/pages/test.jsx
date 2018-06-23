@@ -7,6 +7,8 @@ import {
   FormCard,
   ButtonGroup,
   Tabs,
+  InfiniteScroll,
+  Spinner,
 } from '../components';
 import { connect } from 'react-redux';
 
@@ -19,6 +21,7 @@ class Test extends Component {
     this.state = {
       modalOpen: false,
       selected: 0,
+      node: null,
     };
   }
 
@@ -33,9 +36,13 @@ class Test extends Component {
     this.setState({ selected });
   };
 
-  render() {
-    const { modalOpen, selected } = this.state;
+  setNode = node => {
+    this.setState({ node });
+  };
 
+  render() {
+    const { modalOpen, selected, node } = this.state;
+    console.log(node);
     const signinMarkup = (
       <FormCard header="Contact Us" blend>
         <FormCard.Field
@@ -187,6 +194,18 @@ class Test extends Component {
             onChange={this.handeTabChange}
           />
         </Modal>
+        <div
+          ref={this.setNode}
+          style={{ height: '10000px' }}
+        >
+          <InfiniteScroll
+            container={node}
+            Container={<Button>hello</Button>}
+          >
+            Hello
+          </InfiniteScroll>
+        </div>
+        <Spinner size="large" />
       </Container.Sub>
     );
   }
