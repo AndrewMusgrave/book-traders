@@ -62,7 +62,15 @@ class Test extends Component {
           onChange={noop}
           onBlur={noop}
         />
-        <Button fullWidth> Sign in </Button>
+        <ButtonGroup
+          primary={{ content: 'Signn in', fullWidth: true }}
+          secondary={{
+            content: 'Close',
+            fullWidth: true,
+            danger: true,
+            onClick: this.toggleModal,
+          }}
+        />
         <FormCard.Link href="/">
           Wrong name? Click here
         </FormCard.Link>
@@ -95,7 +103,16 @@ class Test extends Component {
           onChange={noop}
           onBlur={noop}
         />
-        <Button fullWidth> Sign in </Button>
+        {/* <Button fullWidth> Sign in </Button> */}
+        <ButtonGroup
+          primary={{ content: 'Signn in', fullWidth: true }}
+          secondary={{
+            content: 'Close',
+            fullWidth: true,
+            danger: true,
+            onClick: this.toggleModal,
+          }}
+        />
         <FormCard.Link href="/">
           Wrong name? Click here
         </FormCard.Link>

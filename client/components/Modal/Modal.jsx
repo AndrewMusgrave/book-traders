@@ -61,9 +61,13 @@ class Modal extends Component {
       <CSSTransition timeout={750} classNames={slideInUp}>
         <div className={modalClassName} ref={this.setNode}>
           {backDropListener}
-          <Container size="small">
-            <div className={bodyClassName}>{children}</div>
-          </Container>
+          <div className={styles.containerWrapper}>
+            <Container size="small">
+              <div className={bodyClassName}>
+                {children}
+              </div>
+            </Container>
+          </div>
         </div>
       </CSSTransition>
     );

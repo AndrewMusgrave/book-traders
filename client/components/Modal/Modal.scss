@@ -16,9 +16,9 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background: white;
-    border-radius: 3px;    
+    border-radius: 0;    
 }
 
 .backDrop {
@@ -34,7 +34,23 @@
     height: 100%;
 }
 
+.containerWrapper {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
 @media (min-width: 768px) {
+    .containerWrapper {
+        margin-left: 0;
+        margin-right: 0;
+        height: auto;
+    }
+
+    .body {
+        border-radius: 3px;
+        height: 100%;        
+    }
+
     .Modal {
         justify-content: center;
     }
