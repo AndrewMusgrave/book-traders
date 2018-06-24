@@ -14,6 +14,18 @@ import { connect } from 'react-redux';
 
 const noop = () => {};
 
+const defaultErrorMessages = {
+  signin: {
+    username: 'Please provide a username',
+    password: 'Please prvovide a password',
+  },
+  signup: {
+    username: 'A username is required',
+    password: 'A password is required',
+    confirmPassword: 'A password is required',
+  },
+};
+
 class Test extends Component {
   constructor(props) {
     super(props);
@@ -22,6 +34,15 @@ class Test extends Component {
       modalOpen: false,
       selected: 0,
       node: null,
+      signin: {
+        username: { value: '', error: '' },
+        password: { value: '', error: '' },
+      },
+      signup: {
+        username: { value: '', error: '' },
+        password: { value: '', error: '' },
+        confirmPassword: { value: '', error: '' },
+      },
     };
   }
 
@@ -32,8 +53,32 @@ class Test extends Component {
   };
 
   handeTabChange = selected => {
-    console.log('hmm');
     this.setState({ selected });
+  };
+
+  handleTextChange = (type, field) => e => {
+    const tempState = this.state[type];
+    const value = e.target.value;
+    tempState[field].value = value;
+    this.handleTextValidations(type, field, value);
+    this.setState({ [type]: tempState });
+  };
+
+  handleTextBlur = (type, field) => e => {
+    const tempState = this.state[type];
+
+    if (tempState[field].value.length > 0) {
+      return;
+    }
+
+    tempState[field].error =
+      defaultErrorMessages[type][field];
+
+    this.setState({ [type]: tempState });
+  };
+
+  handleTextValidations = (type, field, value) => {
+    console.log(type, field, value);
   };
 
   setNode = node => {
@@ -41,33 +86,59 @@ class Test extends Component {
   };
 
   render() {
-    const { modalOpen, selected, node } = this.state;
-    console.log(node);
+    const {
+      modalOpen,
+      selected,
+      node,
+      signin: {
+        username: {
+          value: signinUsernameValue,
+          error: signinUsernameError,
+        },
+        password: {
+          value: signinPasswordValue,
+          error: signinPasswordError,
+        },
+      },
+      signup: {
+        username: {
+          value: signupUsernameValue,
+          error: signupUsernameError,
+        },
+        password: {
+          value: signupPasswordValue,
+          error: signupPasswordError,
+        },
+        confirmPassword: {
+          value: signupConfirmPasswordValue,
+          error: signupConfirmPasswordError,
+        },
+      },
+    } = this.state;
+
     const signinMarkup = (
-      <FormCard header="Contact Us" blend>
+      <FormCard header="Sign in" blend>
         <FormCard.Field
-          label="Name *"
-          id="contact-name"
-          value={''}
-          error={''}
-          onChange={noop}
-          onBlur={noop}
+          label="Username *"
+          id="signin-username"
+          value={signinUsernameValue}
+          error={signinUsernameError}
+          onChange={this.handleTextChange(
+            'signin',
+            'username',
+          )}
+          onBlur={this.handleTextBlur('signin', 'username')}
         />
         <FormCard.Field
-          label="Email *"
-          id="contact-email"
-          value={''}
-          error={''}
-          onChange={noop}
-          onBlur={noop}
-        />
-        <FormCard.Field
-          label="PhoneNumber *"
-          id="contact-phoneNumber"
-          value={''}
-          error={''}
-          onChange={noop}
-          onBlur={noop}
+          label="Password *"
+          id="sigin-password"
+          value={signinPasswordValue}
+          error={signinPasswordError}
+          onChange={this.handleTextChange(
+            'signin',
+            'password',
+          )}
+          onBlur={this.handleTextBlur('signin', 'password')}
         />
         <ButtonGroup
           primary={{ content: 'Signn in', fullWidth: true }}
@@ -85,32 +156,43 @@ class Test extends Component {
     );
 
     const signupMarkup = (
-      <FormCard header="Sign in" blend>
+      <FormCard header="Sign up" blend>
         <FormCard.Field
-          label="Name *"
-          id="contact-name"
-          value={''}
-          error={''}
-          onChange={noop}
-          onBlur={noop}
+          label="Username *"
+          id="signup-username"
+          value={signupUsernameValue}
+          error={signupUsernameError}
+          onChange={this.handleTextChange(
+            'signup',
+            'username',
+          )}
+          onBlur={this.handleTextBlur('signup', 'username')}
         />
         <FormCard.Field
-          label="Email *"
-          id="contact-email"
-          value={''}
-          error={''}
-          onChange={noop}
-          onBlur={noop}
+          label="Password *"
+          id="signup-password"
+          value={signupPasswordValue}
+          error={signupPasswordError}
+          onChange={this.handleTextChange(
+            'signup',
+            'password',
+          )}
+          onBlur={this.handleTextBlur('signup', 'password')}
         />
         <FormCard.Field
-          label="PhoneNumber *"
-          id="contact-phoneNumber"
-          value={''}
-          error={''}
-          onChange={noop}
-          onBlur={noop}
+          label="Confirm Password *"
+          id="signup-confirm-password"
+          value={signupConfirmPasswordValue}
+          error={signupConfirmPasswordError}
+          onChange={this.handleTextChange(
+            'signup',
+            'confirmPassword',
+          )}
+          onBlur={this.handleTextBlur(
+            'signup',
+            'confirmPassword',
+          )}
         />
-        {/* <Button fullWidth> Sign in </Button> */}
         <ButtonGroup
           primary={{ content: 'Signn in', fullWidth: true }}
           secondary={{
@@ -136,53 +218,6 @@ class Test extends Component {
         <Button onClick={this.toggleModal}>
           Open modal
         </Button>
-        {/* <Modal
-          open={modalOpen}
-          backDrop
-          onBackDrop={this.toggleModal}
-        >
-          <Modal.Section>
-            <FormCard header="Contact Us" blend>
-              <FormCard.Field
-                label="Name *"
-                id="contact-name"
-                value={''}
-                error={''}
-                onChange={noop}
-                onBlur={noop}
-              />
-              <FormCard.Field
-                label="Email *"
-                id="contact-email"
-                value={''}
-                error={''}
-                onChange={noop}
-                onBlur={noop}
-              />
-              <FormCard.Field
-                label="PhoneNumber *"
-                id="contact-phoneNumber"
-                value={''}
-                error={''}
-                onChange={noop}
-                onBlur={noop}
-              />
-              <FormCard.Field
-                label="Message *"
-                id="contact-Message"
-                value={''}
-                error={''}
-                multi={10}
-                onChange={noop}
-                onBlur={noop}
-              />
-              <Button fullWidth> Sign in </Button>
-              <FormCard.Link href="/">
-                Wrong name? Click here
-              </FormCard.Link>
-            </FormCard>
-          </Modal.Section>
-        </Modal> */}
         <Modal
           open={modalOpen}
           backDrop
@@ -194,21 +229,26 @@ class Test extends Component {
             onChange={this.handeTabChange}
           />
         </Modal>
-        <div
-          ref={this.setNode}
-          style={{ height: '10000px' }}
-        >
-          <InfiniteScroll
-            container={node}
-            Container={<Button>hello</Button>}
-          >
-            Hello
-          </InfiniteScroll>
-        </div>
-        <Spinner size="large" />
       </Container.Sub>
     );
   }
 }
 
 export default Test;
+
+function validate() {}
+
+{
+  /* <div
+ref={this.setNode}
+style={{ height: '10000px' }}
+>
+<InfiniteScroll
+  container={node}
+  Container={<Button>hello</Button>}
+>
+  Hello
+</InfiniteScroll>
+</div>
+<Spinner size="large" /> */
+}
