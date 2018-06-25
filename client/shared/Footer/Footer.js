@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import List from './components/List';
 import Section from './components/Section';
-import { EventListener } from '../../components';
+import { EventListener } from '../../shared';
 import Icons from './components/Icons';
 import * as styles from './Footer.scss';
 

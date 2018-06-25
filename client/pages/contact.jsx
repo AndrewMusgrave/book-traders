@@ -6,7 +6,7 @@ import {
   Spinner,
   Button,
   ButtonGroup,
-} from '../components';
+} from '../shared';
 import { connect } from 'react-redux';
 
 const contactErrors = {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { classNames } from '../../../../utils';
-import { Link as RegularLink } from '../../../../components';
+import { Link as RegularLink } from '../../../../shared';
 import * as styles from './Link.scss';
 
 function Link({ children, href }) {

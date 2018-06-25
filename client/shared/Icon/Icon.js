@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from '../../components';
+import { Link } from '../../shared';
 import { classNames } from '../../utils';
 import * as styles from './Icon.scss';
 

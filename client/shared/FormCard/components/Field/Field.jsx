@@ -1,5 +1,5 @@
 import React from 'react';
-import { Danger } from '../../../../components';
+import { Danger } from '../../../../shared';
 import { classNames } from '../../../../utils';
 import * as styles from './Field.scss';
 

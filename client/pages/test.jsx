@@ -9,20 +9,30 @@ import {
   Tabs,
   InfiniteScroll,
   Spinner,
-} from '../components';
+} from '../shared';
 import { connect } from 'react-redux';
 
 const noop = () => {};
 
-const defaultErrorMessages = {
+const valueNotProvidedErrorMessages = {
   signin: {
-    username: 'Please provide a username',
-    password: 'Please prvovide a password',
+    username: 'Please provide a username. ',
+    password: 'Please prvovide a password. ',
   },
   signup: {
-    username: 'A username is required',
-    password: 'A password is required',
-    confirmPassword: 'A password is required',
+    username: 'A username is required. ',
+    password: 'A password is required. ',
+    confirmPassword: 'A password is required. ',
+  },
+};
+const matchPasswordError = 'Your passwords must match';
+
+const defaultErrors = {
+  signin: { username: '', password: '' },
+  signup: {
+    username: '',
+    password: '',
+    confirmPassword: '',
   },
 };
 
@@ -34,14 +44,29 @@ class Test extends Component {
       modalOpen: false,
       selected: 0,
       node: null,
-      signin: {
-        username: { value: '', error: '' },
-        password: { value: '', error: '' },
+      values: {
+        signin: { username: '', password: '' },
+        signup: {
+          username: '',
+          password: '',
+          confirmPassword: '',
+        },
       },
-      signup: {
-        username: { value: '', error: '' },
-        password: { value: '', error: '' },
-        confirmPassword: { value: '', error: '' },
+      errors: {
+        signin: { username: [''], password: [''] },
+        signup: {
+          username: [''],
+          password: [''],
+          confirmPassword: [''],
+        },
+      },
+      isTouched: {
+        signin: { username: false, password: false },
+        signup: {
+          username: false,
+          password: false,
+          confirmPassword: false,
+        },
       },
     };
   }
@@ -57,29 +82,101 @@ class Test extends Component {
   };
 
   handleTextChange = (type, field) => e => {
-    const tempState = this.state[type];
+    const values = this.state.values; //.[type];
     const value = e.target.value;
-    tempState[field].value = value;
+    values[type][field] = value;
     this.handleTextValidations(type, field, value);
-    this.setState({ [type]: tempState });
+    this.setState({ values });
+  };
+
+  handleTextFocus = (type, field) => e => {
+    const isTouched = this.state.isTouched;
+    isTouched[type][field] = true;
+    this.setState({ isTouched });
   };
 
   handleTextBlur = (type, field) => e => {
-    const tempState = this.state[type];
-
-    if (tempState[field].value.length > 0) {
-      return;
-    }
-
-    tempState[field].error =
-      defaultErrorMessages[type][field];
-
-    this.setState({ [type]: tempState });
+    const value = this.state.values[type][field];
+    const errors = this.runValidation(type);
+    this.setState({ errors });
   };
 
   handleTextValidations = (type, field, value) => {
-    console.log(type, field, value);
+    this.runValidation(type);
   };
+
+  runValidation(type) {
+    const values = this.state.values[type];
+    const isTouched = this.state.isTouched[type];
+    const errors = defaultErrors;
+
+    for (const field in values) {
+      if (isTouched[field]) {
+        errors[type][field] = this.validate(
+          type,
+          field,
+          values[field],
+        );
+      }
+    }
+
+    return errors;
+  }
+
+  validate(type, field, value) {
+    const errors = [];
+
+    if (type === 'signin') {
+      if (field === 'username') {
+        if (!valueProvided(value)) {
+          errors.push(
+            valueNotProvidedErrorMessages.signin.username,
+          );
+        }
+      }
+      if (field === 'password') {
+        if (!valueProvided(value)) {
+          errors.push(
+            valueNotProvidedErrorMessages.signin.password,
+          );
+        }
+      }
+    }
+
+    if (type === 'signup') {
+      if (field === 'username') {
+        if (!valueProvided(value)) {
+          errors.push(
+            valueNotProvidedErrorMessages.signup.username,
+          );
+        }
+      }
+
+      if (field === 'password') {
+        if (!valueProvided(value)) {
+          errors.push(
+            valueNotProvidedErrorMessages.signup.password,
+          );
+        }
+      }
+
+      if (field === 'confirmPassword') {
+        if (!valueProvided(value)) {
+          errors.push(
+            valueNotProvidedErrorMessages.signup
+              .confirmPassword,
+          );
+        }
+
+        const password = this.state.values.signup.password;
+        if (value !== password) {
+          errors.push(matchPasswordError);
+        }
+      }
+    }
+
+    return errors;
+  }
 
   setNode = node => {
     this.setState({ node });
@@ -90,28 +187,26 @@ class Test extends Component {
       modalOpen,
       selected,
       node,
-      signin: {
-        username: {
-          value: signinUsernameValue,
-          error: signinUsernameError,
+      values: {
+        signin: {
+          username: signinUsernameValue,
+          password: signinPasswordValue,
         },
-        password: {
-          value: signinPasswordValue,
-          error: signinPasswordError,
+        signup: {
+          username: signupUsernameValue,
+          password: signupPasswordValue,
+          confirmPassword: signupConfirmPasswordValue,
         },
       },
-      signup: {
-        username: {
-          value: signupUsernameValue,
-          error: signupUsernameError,
+      errors: {
+        signin: {
+          username: signinUsernameError,
+          password: signinPasswordError,
         },
-        password: {
-          value: signupPasswordValue,
-          error: signupPasswordError,
-        },
-        confirmPassword: {
-          value: signupConfirmPasswordValue,
-          error: signupConfirmPasswordError,
+        signup: {
+          username: signupUsernameError,
+          password: signupPasswordError,
+          confirmPassword: signupConfirmPasswordError,
         },
       },
     } = this.state;
@@ -128,10 +223,15 @@ class Test extends Component {
             'username',
           )}
           onBlur={this.handleTextBlur('signin', 'username')}
+          onFocus={this.handleTextFocus(
+            'signin',
+            'username',
+          )}
         />
         <FormCard.Field
           label="Password *"
           id="sigin-password"
+          type="password"
           value={signinPasswordValue}
           error={signinPasswordError}
           onChange={this.handleTextChange(
@@ -139,9 +239,13 @@ class Test extends Component {
             'password',
           )}
           onBlur={this.handleTextBlur('signin', 'password')}
+          onFocus={this.handleTextFocus(
+            'signin',
+            'password',
+          )}
         />
         <ButtonGroup
-          primary={{ content: 'Signn in', fullWidth: true }}
+          primary={{ content: 'Sign in', fullWidth: true }}
           secondary={{
             content: 'Close',
             fullWidth: true,
@@ -150,7 +254,7 @@ class Test extends Component {
           }}
         />
         <FormCard.Link href="/">
-          Wrong name? Click here
+          Need an account? Sign up.
         </FormCard.Link>
       </FormCard>
     );
@@ -167,10 +271,15 @@ class Test extends Component {
             'username',
           )}
           onBlur={this.handleTextBlur('signup', 'username')}
+          onFocus={this.handleTextFocus(
+            'signup',
+            'username',
+          )}
         />
         <FormCard.Field
           label="Password *"
           id="signup-password"
+          type="password"
           value={signupPasswordValue}
           error={signupPasswordError}
           onChange={this.handleTextChange(
@@ -178,10 +287,15 @@ class Test extends Component {
             'password',
           )}
           onBlur={this.handleTextBlur('signup', 'password')}
+          onFocus={this.handleTextFocus(
+            'signup',
+            'password',
+          )}
         />
         <FormCard.Field
           label="Confirm Password *"
           id="signup-confirm-password"
+          type="password"
           value={signupConfirmPasswordValue}
           error={signupConfirmPasswordError}
           onChange={this.handleTextChange(
@@ -192,9 +306,13 @@ class Test extends Component {
             'signup',
             'confirmPassword',
           )}
+          onFocus={this.handleTextFocus(
+            'signup',
+            'confirmPassword',
+          )}
         />
         <ButtonGroup
-          primary={{ content: 'Signn in', fullWidth: true }}
+          primary={{ content: 'Sign up', fullWidth: true }}
           secondary={{
             content: 'Close',
             fullWidth: true,
@@ -203,7 +321,7 @@ class Test extends Component {
           }}
         />
         <FormCard.Link href="/">
-          Wrong name? Click here
+          Forgot your signin information? Click here.
         </FormCard.Link>
       </FormCard>
     );
@@ -234,21 +352,8 @@ class Test extends Component {
   }
 }
 
-export default Test;
-
-function validate() {}
-
-{
-  /* <div
-ref={this.setNode}
-style={{ height: '10000px' }}
->
-<InfiniteScroll
-  container={node}
-  Container={<Button>hello</Button>}
->
-  Hello
-</InfiniteScroll>
-</div>
-<Spinner size="large" /> */
+function valueProvided(v) {
+  return Boolean(v);
 }
+
+export default Test;

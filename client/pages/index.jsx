@@ -5,8 +5,8 @@ import {
   TextField,
   Form,
 } from '@shopify/polaris';
-import Header from '../components/Header';
-import { Button } from '../components';
+import Header from '../shared/Header';
+import { Button } from '../shared';
 import * as actions from '../actions';
 import { connect } from 'react-redux';
 

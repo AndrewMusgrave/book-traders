@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { classNames } from '../../../../utils';
-import { Icon } from '../../../../components';
+import { Icon } from '../../../../shared';
 import * as styles from './Icons.scss';
 
 function Icons({ icons }) {

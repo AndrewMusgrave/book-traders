@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { findDOMNode } from 'react-dom';
-import { EventListener } from '../../components';
+import { EventListener } from '../../shared';
 
 //has more
 //distance before bottom

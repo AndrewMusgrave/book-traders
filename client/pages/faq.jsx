@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import * as actions from '../actions';
-import { Container, TextContainer } from '../components';
+import { Container, TextContainer } from '../shared';
 import { connect } from 'react-redux';
 
 function Faq() {

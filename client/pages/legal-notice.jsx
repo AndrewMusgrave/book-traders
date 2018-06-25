@@ -6,7 +6,7 @@ import {
   Danger,
   List,
   Link,
-} from '../components';
+} from '../shared';
 import { connect } from 'react-redux';
 
 function TermsAndConditions() {

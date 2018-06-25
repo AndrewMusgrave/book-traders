@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Portal, Container } from '../../components';
+import { Portal, Container } from '../../shared';
 import { classNames } from '../../utils';
 import {
   TransitionGroup,

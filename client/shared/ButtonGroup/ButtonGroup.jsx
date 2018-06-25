@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '../../components';
+import { Button } from '../../shared';
 import { classNames } from '../../utils';
 import * as styles from './ButtonGroup.scss';
 

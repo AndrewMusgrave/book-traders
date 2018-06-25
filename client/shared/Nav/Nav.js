@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { classNames } from '../../utils';
-import { Container } from '../../components';
+import { Container } from '../../shared';
 import { NavProvider } from './components/Context';
 import Brand from './components/Brand';
 import Routes from './components/Routes';
