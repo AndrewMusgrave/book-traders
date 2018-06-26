@@ -5,6 +5,7 @@ import {
   Footer,
   Container,
 } from '../../shared';
+import { SignInUpModal } from '../../components';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import store from '../../store';
@@ -13,11 +14,22 @@ import '../../styles/globals.scss';
 import '../../styles/variables.scss';
 
 export default class Frame extends React.Component {
+  state = {
+    modalOpen: false,
+  };
+
   handleSearch() {
     console.log('searched');
   }
 
+  toggleModal = () => {
+    this.setState(({ modalOpen }) => ({
+      modalOpen: !modalOpen,
+    }));
+  };
+
   render() {
+    const { modalOpen } = this.state;
     const { Component, pageProps, children } = this.props;
     return (
       <Provider store={store}>
@@ -37,23 +49,26 @@ export default class Frame extends React.Component {
               <Nav.Routes
                 routes={[
                   {
-                    name: 'My Books',
-                    to: '/my-books',
+                    name: 'Signin',
+                    onClick: this.toggleModal,
                   },
                   {
-                    name: 'Profile',
-                    to: '/profile',
-                  },
-                  {
-                    name: 'Sign Out',
-                    to: '/signout',
+                    name: 'Browse',
+                    to: '/',
                   },
                 ]}
               />
               <Nav.Search placeHolder="Search ..." />
             </Nav.Section>
           </Nav>
-          <Container>{children}</Container>
+          <Container>
+            {children}
+            <SignInUpModal
+              open={modalOpen}
+              onBackDrop={this.toggleModal}
+              toggleModal={this.toggleModal}
+            />
+          </Container>
           <Footer>
             <Footer.Section>
               <Footer.List
