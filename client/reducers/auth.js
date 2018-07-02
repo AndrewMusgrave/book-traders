@@ -4,7 +4,10 @@ import {
   UNAUTH_USER,
 } from '../actions/types';
 
-const initState = { error: '', authenticated: false };
+const initState = {
+  error: { signin: '', signup: '' },
+  authenticated: false,
+};
 
 export default function ShopifyAppReducer(
   state = initState,

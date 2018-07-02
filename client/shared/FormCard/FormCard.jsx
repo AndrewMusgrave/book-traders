@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { classNames } from '../../utils';
 import Field from './components/Field';
 import Link from './components/Link';
+import Error from './components/Error';
 import * as styles from './FormCard.scss';
 
 class FormCard extends Component {
   static Field = Field;
   static Link = Link;
+  static Error = Error;
 
   render() {
     const {
@@ -36,7 +38,7 @@ class FormCard extends Component {
         linkMarkup.push(formElements.splice(i, 1));
       }
     }
-
+    console.log(linkMarkup);
     return (
       <div className={formCardClassName}>
         {headerMarkup}

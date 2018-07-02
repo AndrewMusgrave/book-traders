@@ -4,6 +4,7 @@ import {
   FormCard,
   ButtonGroup,
   Tabs,
+  Danger,
 } from '../../shared';
 
 const valueNotProvidedErrorMessages = {
@@ -188,7 +189,22 @@ class SignInUpModal extends Component {
         },
       },
     } = this.state;
-    const { open, onBackDrop, toggleModal } = this.props;
+    const {
+      open,
+      onBackDrop,
+      toggleModal,
+      onSignin,
+      onSignup,
+      signinError,
+      signupError,
+    } = this.props;
+
+    const signupErrorMarkup = signupError && (
+      <FormCard.Error>{signupError}</FormCard.Error>
+    );
+    const signinErrorMarkup = signinError && (
+      <FormCard.Error>{signinError}</FormCard.Error>
+    );
 
     const signinMarkup = (
       <FormCard header="Sign in" blend>
@@ -223,8 +239,13 @@ class SignInUpModal extends Component {
             'password',
           )}
         />
+        {signinErrorMarkup}
         <ButtonGroup
-          primary={{ content: 'Sign in', fullWidth: true }}
+          primary={{
+            content: 'Sign in',
+            fullWidth: true,
+            onClick: onSignin,
+          }}
           secondary={{
             content: 'Close',
             fullWidth: true,
@@ -290,8 +311,13 @@ class SignInUpModal extends Component {
             'confirmPassword',
           )}
         />
+        {signupErrorMarkup}
         <ButtonGroup
-          primary={{ content: 'Sign up', fullWidth: true }}
+          primary={{
+            content: 'Sign up',
+            fullWidth: true,
+            onClick: onSignup,
+          }}
           secondary={{
             content: 'Close',
             fullWidth: true,

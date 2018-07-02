@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { AUTH_ERROR } from './types';
 
-const ROOT_URL = 'https://localhost:3000';
+const ROOT_URL = 'http://localhost:3000';
 
 export function authError(error) {
   return {
@@ -34,7 +34,7 @@ export function signinUser({ email, password }) {
         localStorage.setItem('token', responce.data.token);
       })
       .catch(() => {
-        dispatch(authError('Bad Login Info'));
+        dispatch(authError({ signin: 'Bad Login Info' }));
       });
   };
 }

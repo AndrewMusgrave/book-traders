@@ -28,9 +28,16 @@ class Frame extends React.Component {
   };
 
   render() {
-    console.log(this.props);
     const { modalOpen } = this.state;
-    const { Component, pageProps, children } = this.props;
+    const {
+      Component,
+      pageProps,
+      children,
+      signinUser,
+      signupUser,
+      auth,
+    } = this.props;
+    console.log(this.props.auth);
     return (
       <Layout>
         <Nav
@@ -66,6 +73,10 @@ class Frame extends React.Component {
             open={modalOpen}
             onBackDrop={this.toggleModal}
             toggleModal={this.toggleModal}
+            onSignin={signinUser}
+            onSignup={signupUser}
+            signinError={auth.error.signin}
+            signupError={auth.error.signup}
           />
         </Container>
         <Footer>

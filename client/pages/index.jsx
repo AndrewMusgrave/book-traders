@@ -26,7 +26,7 @@ class Main extends Component {
   render() {
     // console.log(this.props);
     const { appName } = this.state;
-    console.log(appName);
+    // console.log(appName);
     // const {
     //   shopifyApp: { name },
     // } = this.props;
@@ -55,7 +55,7 @@ class Main extends Component {
 
 const mapStateToProps = state => {
   const { auth } = state;
-  console.log(state);
+  // console.log(state);
   return {
     auth,
   };
