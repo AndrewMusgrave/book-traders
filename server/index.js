@@ -5,6 +5,8 @@ const path = require('path');
 const express = require('express');
 const next = require('next');
 const morgan = require('morgan');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 const router = require('./routes/routes');
 
@@ -16,11 +18,20 @@ const handle = app.getRequestHandler();
 
 const { NODE_ENV } = process.env;
 
+mongoose.promise = global.Promise;
+mongoose
+  .connect(
+    process.env.MONGODB_URL ||
+      'mongodb://localhost/books',
+  )
+  .catch(err => console.log(err));
+
 app.prepare().then(() => {
   const isDevelopment = NODE_ENV !== 'production';
   const server = express();
 
   server.use(morgan('dev'));
+  server.use(bodyParser.json({ type: '*/*' }));
 
   router(server, app);
 

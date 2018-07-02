@@ -24,11 +24,12 @@ class Main extends Component {
   };
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     const { appName } = this.state;
-    const {
-      shopifyApp: { name },
-    } = this.props;
+    console.log(appName);
+    // const {
+    //   shopifyApp: { name },
+    // } = this.props;
 
     return (
       <AppProvider>
@@ -53,10 +54,10 @@ class Main extends Component {
 }
 
 const mapStateToProps = state => {
-  const { shopifyApp } = state;
+  const { auth } = state;
   console.log(state);
   return {
-    shopifyApp,
+    auth,
   };
 };
 

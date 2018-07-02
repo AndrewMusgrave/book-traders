@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import shopifyApp from './shopifyApp';
+import auth from './auth';
 
-const rootReducer = combineReducers({ shopifyApp });
+const rootReducer = combineReducers({ auth });
 
 export default rootReducer;
